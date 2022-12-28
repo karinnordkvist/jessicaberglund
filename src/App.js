@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CookieConsent from 'react-cookie-consent';
+import Nav from './components/Nav';
+import Main from './pages/Main.js';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <BrowserRouter>
+        <CookieConsent
+          location="bottom"
+          buttonText="Acceptera Cookies"
+          cookieName="cookieName"
+          style={{ background: '#2B373B', fontSize: '14px' }}
+          buttonStyle={{ background: '#fff', fontSize: '13px', color: '#000' }}
+          expires={150}
         >
-          Learn React
-        </a>
-      </header>
+          Den här webbplatsen använder nödvändiga cookies för att den ska
+          fungera på ett bra sätt för dig.
+        </CookieConsent>
+
+        <Nav />
+
+        <Routes>
+          <Route path="/" element={<Main />} />
+          {/* <Route path="/nyheter" element={<NewsPage />} />
+          <Route path="/kalender" element={<CalendarPage />} />
+          <Route path="/dokument" element={<DocumentsPage />} />
+          <Route path="/kontakt" element={<ContactPage />} /> */}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
