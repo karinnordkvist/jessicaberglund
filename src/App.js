@@ -11,7 +11,7 @@ function App() {
           location="bottom"
           buttonText="Acceptera Cookies"
           cookieName="cookieName"
-          style={{ background: '#2B373B', fontSize: '14px' }}
+          style={{ background: '#7d7066', fontSize: '14px' }}
           buttonStyle={{ background: '#fff', fontSize: '13px', color: '#000' }}
           expires={150}
         >
