@@ -19,7 +19,7 @@
   --color-terra: #b7897b;
   --color-lightTerra: #f6e9e4;
 
-  --font-main: 'Crimson Pro';
+  --font-primary: 'Crimson Pro';
   --font-secondary: 'Glacior';
 }
 
@@ -31,9 +31,9 @@
 
 body {
   margin: 0;
-  font-family: 'Crimson Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
+  font-family: var(--font-primary), -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--color-lightHazel);

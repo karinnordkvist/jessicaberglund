@@ -26,59 +26,43 @@ export const IntroText = styled.p`
   }
 `;
 
-export const ListBlock2Col = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  font-size: 14px;
-  line-height: 1.4;
-
-  & > div {
-    width: 100%;
-  }
-
-  ul {
-    margin: 20px 0;
-
-    li {
-      padding: 3px 0;
-    }
-  }
-
-  h3 {
-    margin: 10px 0 30px;
-  }
-
-  .tech-info {
-    line-height: 1.7;
-  }
-
-  @media (min-width: 800px) {
-    & > div {
-      width: calc(50% - 10px);
-    }
-
-    ul {
-      margin: 10px 0 50px;
-    }
-  }
+export const FullWidthBackgroundImage = styled(FullWidthSection)`
+  background: url(${(props) => props.imageURL});
+  background-size: cover;
+  background-position: center;
 `;
 
-export const WhiteBox = styled.div`
-  background: var(--color-white);
-  padding: 25px 50px 35px;
-  box-shadow: 10px 10px ${(props) => props.mainColor};
-  transition: all 0.2s ease-in-out;
-  height: fit-content;
+export const Hero = styled(FullWidthBackgroundImage)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  &:hover {
-    box-shadow: 0px 0px ${(props) => props.mainColor};
-    transform: translate(10px);
+  .logo {
+    width: 60%;
+    padding: 30px;
+
+    @media (max-width: 1200px) {
+      width: 80%;
+      padding: 30px 10px;
+    }
+
+    @media (max-width: 768px) {
+      width: 90%;
+      padding: 30px 10px;
+    }
   }
 
-  @media (max-width: 1024px) {
-    padding: 25px 70px 35px 40px;
-    width: fit-content !important;
+  .slogan {
+    width: 40%;
+
+    @media (max-width: 1200px) {
+      width: 60%;
+    }
+
+    @media (max-width: 768px) {
+      width: 70%;
+    }
   }
 `;
 
@@ -97,68 +81,6 @@ export const FWSection = styled.div`
 
   @media (max-width: 700px) {
     padding: 190px 30px 30px;
-  }
-`;
-
-export const InfoBoxesWrapper = styled.div`
-  display: flex;
-  margin-bottom: 70px;
-
-  ul {
-    list-style-type: none;
-  }
-
-  li {
-    position: relative;
-    left: 22px;
-    margin: 5px 0;
-  }
-
-  li:before {
-    position: absolute;
-    font: var(--fa-font-solid);
-    content: '\f061';
-    top: 4px;
-    left: -22px;
-  }
-
-  .top-text {
-    width: 60%;
-    padding: 20px 40px 0 80px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-
-    .top-text {
-      width: 96%;
-      padding: 40px 40px 0 0;
-    }
-  }
-
-  @media (max-width: 700px) {
-    .top-text {
-      width: 100%;
-      padding: 40px 0 0 0;
-    }
-  }
-`;
-
-export const Intro = styled.p`
-  width: 70%;
-  font-family: var(--font-secondary);
-  font-size: 20px;
-  line-height: 1.4;
-  color: ${(props) => props.mainColor};
-  margin: 50px 0;
-
-  @media (max-width: 1024px) {
-    width: 90%;
-  }
-
-  @media (max-width: 700px) {
-    width: 100%;
-    margin: 30px 0;
   }
 `;
 

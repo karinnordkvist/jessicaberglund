@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CookieConsent from 'react-cookie-consent';
 import Nav from './components/Nav';
-import Main from './pages/Main.js';
+import Home from './pages/Home.js';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <Nav />
 
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Home />} />
           {/* <Route path="/nyheter" element={<NewsPage />} />
           <Route path="/kalender" element={<CalendarPage />} />
           <Route path="/dokument" element={<DocumentsPage />} />
