@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components/macro';
-import { FullWidthBackgroundImage, Hero } from '../assets/GlobalStyles';
+import React from 'react';
+import { Link } from 'react-router-dom';
+// import styled from 'styled-components/macro';
+import { Hero } from '../assets/GlobalStyles';
 import FloatingNav from '../components/FloatingNav';
 import TextImage from '../components/TextImage';
 import DualPhotoLinks from '../components/DualPhotoLinks';
 
 // import sanityClient from '../client.js';
-
-// COMPONENTS
-// import Hero from '../components/Hero';
-// import FullWidthImage from '../components/FullWidthImage';
-// import News from '../components/News';
-// import Calendar from '../components/Calendar';
-// import Divider from '../components/Divider';
-// import MoreButton from '../components/MoreButton';
-// import Contact from '../components/Contact';
-// import Footer from '../components/Footer';
 
 const Home = () => {
   return (
@@ -35,6 +26,11 @@ const Home = () => {
       <FloatingNav />
       <TextImage />
       <DualPhotoLinks />
+      <Link to="/flora">
+        <Hero imageURL="./images/311769422_1285362212227630_191711011740689787_n.jpeg">
+          <h2>Flora</h2>
+        </Hero>
+      </Link>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const PhotoLinksWrapper = styled(FullWidthSection)`
   width: 70%;
   margin: 0 auto;
   min-height: auto;
-  padding: 100px 0 0;
+  padding: 150px 0 50px;
 
   div {
     width: 50%;
@@ -64,14 +64,14 @@ const DualPhotoLinks = () => {
   return (
     <div style={{ background: 'var(--color-lightHazel)' }}>
       <PhotoLinksWrapper>
-        <Link to="/">
+        <Link to="/foto">
           <img
             src="./images/313849679_573762377749840_447649959734290178_n.jpeg"
             alt="Barn leker i höstlöven"
           />
           <h3>FOTO</h3>
         </Link>
-        <Link to="/">
+        <Link to="/flora">
           <img
             src="./images/312961694_937441233901670_5917840965797641745_n.jpeg"
             alt="Jessica i dörröppning vid blomma"

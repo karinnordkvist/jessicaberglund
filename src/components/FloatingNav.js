@@ -3,18 +3,19 @@ import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 
 const NavWrapper = styled.section`
-  width: 100%;
+  width: 85%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 50px 100px;
-  z-index: 10;
 
   a {
     text-decoration: none;
     font-family: var(--font-secondary);
     font-size: 30px;
     font-weight: 400;
+    z-index: 200;
   }
 
   @media (max-width: 968px) {
@@ -40,19 +41,19 @@ const NavWrapper = styled.section`
 const FloatingNav = () => {
   return (
     <NavWrapper>
-      <Link className="logo-nav" to="/">
+      <Link className="logo-nav" to="/foto">
         Foto
       </Link>
-      <Link className="logo-nav" to="/">
+      <Link className="logo-nav" to="/flora">
         Flora
       </Link>
-      <Link className="logo-nav" to="/">
+      <Link className="logo-nav" to="/samarbeten">
         Samarbeten
       </Link>
-      <Link className="logo-nav" to="/">
+      <Link className="logo-nav" to="/priser">
         Priser
       </Link>
-      <Link className="logo-nav" to="/">
+      <Link className="logo-nav" to="/kontakt">
         Kontakt
       </Link>
     </NavWrapper>

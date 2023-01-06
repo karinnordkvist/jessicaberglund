@@ -40,17 +40,20 @@ body {
 }
 
 h1 {
+  font-family: var(--font-secondary);
   font-weight: 400;
   font-size: 56px;
 }
 
 h2 {
+  font-family: var(--font-secondary);
   font-weight: 400;
   font-size: 48px;
 }
 
 h3 {
-  font-weight: 600;
+  font-family: var(--font-secondary);
+  font-weight: 400;
 }
 
 a {
