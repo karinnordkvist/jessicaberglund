@@ -7,7 +7,7 @@ const PhotoLinksWrapper = styled(FullWidthSection)`
   width: 70%;
   margin: 0 auto;
   min-height: auto;
-  padding: 50px 0;
+  padding: 100px 0 0;
 
   div {
     width: 50%;
@@ -29,7 +29,7 @@ const PhotoLinksWrapper = styled(FullWidthSection)`
     font-size: 80px;
     text-align: center;
     transform: translateY(-50px);
-    color: #fff;
+    color: var(--color-neutral);
   }
 
   @media (max-width: 1200px) {
@@ -62,22 +62,24 @@ const PhotoLinksWrapper = styled(FullWidthSection)`
 
 const DualPhotoLinks = () => {
   return (
-    <PhotoLinksWrapper>
-      <div>
-        <img
-          src="./images/313849679_573762377749840_447649959734290178_n.jpeg"
-          alt="Barn leker i höstlöven"
-        />
-        <h3>FOTO</h3>
-      </div>
-      <div>
-        <img
-          src="./images/312961694_937441233901670_5917840965797641745_n.jpeg"
-          alt="Jessica i dörröppning vid blomma"
-        />
-        <h3>FLORA</h3>
-      </div>
-    </PhotoLinksWrapper>
+    <div style={{ background: 'var(--color-lightHazel)' }}>
+      <PhotoLinksWrapper>
+        <Link to="/">
+          <img
+            src="./images/313849679_573762377749840_447649959734290178_n.jpeg"
+            alt="Barn leker i höstlöven"
+          />
+          <h3>FOTO</h3>
+        </Link>
+        <Link to="/">
+          <img
+            src="./images/312961694_937441233901670_5917840965797641745_n.jpeg"
+            alt="Jessica i dörröppning vid blomma"
+          />
+          <h3>FLORA</h3>
+        </Link>
+      </PhotoLinksWrapper>
+    </div>
   );
 };
 

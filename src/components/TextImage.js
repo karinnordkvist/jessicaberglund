@@ -4,7 +4,7 @@ import { FullWidthSection } from '../assets/GlobalStyles';
 
 const TextImageWrapper = styled(FullWidthSection)`
   width: 70%;
-  margin: 0 auto;
+  margin: 100px auto;
   min-height: auto;
 
   p {
