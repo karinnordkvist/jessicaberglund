@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { OuterWrapper, MainButton } from '../assets/GlobalStyles';
 
@@ -8,6 +9,7 @@ const CustomOuterWrapper = styled(OuterWrapper)`
   height: 600px;
   max-height: 600px;
   overflow: hidden;
+  flex-direction: ${(props) => (props.dir === 'rev' ? 'row-reverse' : 'row')};
 
   div {
     padding: 50px;
@@ -43,20 +45,26 @@ const MainText = styled.p`
   padding: 20px 0;
 `;
 
-const TextImageNav = ({ bg, color }) => {
+const TextImageNav = ({
+  bg,
+  color,
+  title,
+  text,
+  buttonText,
+  toLocation,
+  dir,
+  imgUrl,
+  imgAlt,
+}) => {
   return (
-    <CustomOuterWrapper bg={bg}>
-      <img
-        src="./images/311314965_1153875888877486_5513361764347484917_n.jpeg"
-        alt="Jessica stickar vid ett träd"
-      />
+    <CustomOuterWrapper bg={bg} dir={dir}>
+      <img src={imgUrl} alt={imgAlt} />
       <div>
-        <Title color={color}>Priser</Title>
-        <MainText color={color}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-          consectetur ultrices turpis lectus. Amet commodo
-        </MainText>
-        <MainButton>Till Prislistan</MainButton>
+        <Title color={color}>{title}</Title>
+        <MainText color={color}>{text}</MainText>
+        <Link to={toLocation}>
+          <MainButton>{buttonText}</MainButton>
+        </Link>
       </div>
     </CustomOuterWrapper>
   );

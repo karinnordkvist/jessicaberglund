@@ -25,7 +25,18 @@ const Home = () => {
       </CustomHero>
       {/* <FloatingNav /> */}
       <TextBlock />
-      <TextImageNav bg="var(--color-darkTerra)" color="var(--color-neutral)" />
+      <TextImageNav
+        title="Priser"
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
+          consectetur ultrices turpis lectus. Amet commodo"
+        buttonText="Till Prislistan"
+        toLocation="/priser"
+        bg="var(--color-darkTerra)"
+        color="var(--color-neutral)"
+        dir=""
+        imgUrl="./images/294945001_1008707779747107_4929773751042745689_n.jpeg"
+        imgAlt="Jessica stickar vid ett träd"
+      />
     </div>
   );
 };

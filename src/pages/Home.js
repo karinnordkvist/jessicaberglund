@@ -5,6 +5,7 @@ import { Hero } from '../assets/GlobalStyles';
 import FloatingNav from '../components/FloatingNav';
 import TextImage from '../components/TextImage';
 import DualPhotoLinks from '../components/DualPhotoLinks';
+import TextImageNav from '../components/TextImageNav';
 
 // import sanityClient from '../client.js';
 
@@ -31,6 +32,16 @@ const Home = () => {
           <h2>Flora</h2>
         </Hero>
       </Link>
+      <TextImageNav
+        title="Priser"
+        text=""
+        bg="var(--color-darkMoss)"
+        color="var(--color-neutral)"
+        toLocation="/priser"
+        buttonText="Till Prislistan"
+        dir="rev"
+        imgUrl="./images/308257562_1118799312080230_8966248970938926505_n.jpeg"
+      />
     </div>
   );
 };
