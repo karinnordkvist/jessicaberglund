@@ -56,9 +56,17 @@ const FormWrapper = styled(FullWidthSection)`
   }
 
   @media (max-width: 768px) {
-    width: 80%;
+    padding: 60px 30px;
 
-    p {
+    form {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 498px) {
+    padding: 60px 30px;
+
+    form {
       width: 100%;
     }
   }

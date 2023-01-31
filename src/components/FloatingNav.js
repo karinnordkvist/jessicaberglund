@@ -19,12 +19,13 @@ const NavWrapper = styled.section`
   }
 
   @media (max-width: 968px) {
-    padding: 50px;
-  }
+    padding: 50px 20px;
+    flex-direction: column;
+    justify-content: center;
 
-  @media (max-width: 768px) {
     a {
-      font-size: 24px;
+      font-size: 36px;
+      padding: 10px 0;
     }
   }
 
@@ -33,7 +34,6 @@ const NavWrapper = styled.section`
 
     a {
       padding: 10px 0;
-      font-size: 36px;
     }
   }
 `;

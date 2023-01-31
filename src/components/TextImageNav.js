@@ -8,7 +8,7 @@ const CustomOuterWrapper = styled(OuterWrapper)`
   display: flex;
   height: 600px;
   max-height: 600px;
-  overflow: hidden;
+  /* overflow: hidden; */
   flex-direction: ${(props) => (props.dir === 'rev' ? 'row-reverse' : 'row')};
 
   div {
@@ -32,6 +32,21 @@ const CustomOuterWrapper = styled(OuterWrapper)`
     font-family: var(--font-secondary);
     font-weight: 400;
     font-size: 60px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    height: auto;
+    max-height: unset !important;
+
+    img {
+      width: 100%;
+      height: 500px;
+    }
+
+    div {
+      width: 100%;
+    }
   }
 `;
 
