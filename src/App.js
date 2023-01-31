@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useLayoutEffect } from 'react';
 import CookieConsent from 'react-cookie-consent';
+import { Provider } from 'react-redux';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 // COMPONENTS
 import Nav from './components/Nav';
@@ -13,6 +15,17 @@ import Samarbeten from './pages/Samarbeten.js';
 import Priser from './pages/Priser.js';
 import Kontakt from './pages/Kontakt.js';
 
+// Reducers
+import { now } from './reducers/now';
+
+// ----------------------------------------------------------------
+const reducer = combineReducers({
+  now: now.reducer,
+});
+
+const store = configureStore({ reducer });
+// ----------------------------------------------------------------
+
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
@@ -23,36 +36,38 @@ const Wrapper = ({ children }) => {
 
 const App = () => {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Wrapper>
-          <CookieConsent
-            location="bottom"
-            buttonText="Acceptera Cookies"
-            cookieName="cookieName"
-            style={{ background: '#7d7066', fontSize: '14px' }}
-            buttonStyle={{
-              background: '#fff',
-              fontSize: '13px',
-              color: '#000',
-            }}
-            expires={150}
-          >
-            Den här webbplatsen använder nödvändiga cookies för att den ska
-            fungera på ett bra sätt för dig.
-          </CookieConsent>
-          <Nav />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/foto" element={<Foto />} />
-            <Route path="/flora" element={<Flora />} />
-            <Route path="/samarbeten" element={<Samarbeten />} />
-            <Route path="/priser" element={<Priser />} />
-            <Route path="/kontakt" element={<Kontakt />} />
-          </Routes>
-        </Wrapper>
-      </BrowserRouter>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <BrowserRouter>
+          <Wrapper>
+            <CookieConsent
+              location="bottom"
+              buttonText="Acceptera Cookies"
+              cookieName="cookieName"
+              style={{ background: '#7d7066', fontSize: '14px' }}
+              buttonStyle={{
+                background: '#fff',
+                fontSize: '13px',
+                color: '#000',
+              }}
+              expires={150}
+            >
+              Den här webbplatsen använder nödvändiga cookies för att den ska
+              fungera på ett bra sätt för dig.
+            </CookieConsent>
+            <Nav />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/foto" element={<Foto />} />
+              <Route path="/flora" element={<Flora />} />
+              <Route path="/samarbeten" element={<Samarbeten />} />
+              <Route path="/priser" element={<Priser />} />
+              <Route path="/kontakt" element={<Kontakt />} />
+            </Routes>
+          </Wrapper>
+        </BrowserRouter>
+      </div>
+    </Provider>
   );
 };
 

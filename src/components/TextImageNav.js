@@ -51,6 +51,8 @@ const TextImageNav = ({
   title,
   text,
   buttonText,
+  buttonColor,
+  buttonTextColor,
   toLocation,
   dir,
   imgUrl,
@@ -63,7 +65,12 @@ const TextImageNav = ({
         <Title color={color}>{title}</Title>
         <MainText color={color}>{text}</MainText>
         <Link to={toLocation}>
-          <MainButton>{buttonText}</MainButton>
+          <MainButton
+            buttonColor={buttonColor}
+            buttonTextColor={buttonTextColor}
+          >
+            {buttonText}
+          </MainButton>
         </Link>
       </div>
     </CustomOuterWrapper>

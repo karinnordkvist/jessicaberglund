@@ -71,8 +71,8 @@ export const MainButton = styled.a`
   text-decoration: none;
   font-family: var(--font-primary);
   font-weight: 400;
-  background: var(--color-darkHazel);
-  color: var(--color-neutral);
+  background: ${(props) => props.buttonColor};
+  color: ${(props) => props.buttonTextColor};
   padding: 18px 40px;
   cursor: pointer;
   display: inline-block;

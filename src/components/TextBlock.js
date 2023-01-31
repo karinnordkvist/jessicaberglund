@@ -38,7 +38,12 @@ const TextImage = () => {
       </p>
 
       <p>Kontakta mig för mer information och bokning.</p>
-      <MainButton>Kontakta mig</MainButton>
+      <MainButton
+        buttonColor="var(--color-darkHazel)"
+        buttonTextColor="var(--color-neutral)"
+      >
+        Kontakta mig
+      </MainButton>
     </TextWrapper>
   );
 };

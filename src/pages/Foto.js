@@ -30,6 +30,8 @@ const Home = () => {
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
           consectetur ultrices turpis lectus. Amet commodo"
         buttonText="Till Prislistan"
+        buttonColor="var(--color-neutral)"
+        buttonTextColor="var(--color-darkTerra)"
         toLocation="/priser"
         bg="var(--color-darkTerra)"
         color="var(--color-neutral)"
