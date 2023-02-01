@@ -91,7 +91,7 @@ const Priser = () => {
       <CustomInnerWrapper>
         <p className="intro">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-          consectetur ultrices turpis lectus. Amet commodo curabitur rutrum pro.
+          consectetur ultrices turpis lectus. Amet curabitur rutrum pro.
         </p>
 
         <p className="info">
