@@ -60,6 +60,18 @@ const MainText = styled.p`
   padding: 20px 0;
 `;
 
+const TextImageButton = styled(Link)`
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  background: ${(props) => props.buttoncolor};
+  color: ${(props) => props.buttontextcolor};
+  padding: 18px 40px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 20px 0;
+`;
+
 const TextImageNav = ({
   bg,
   color,
@@ -79,14 +91,13 @@ const TextImageNav = ({
       <div>
         <Title color={color}>{title}</Title>
         <MainText color={color}>{text}</MainText>
-        <Link to={toLocation}>
-          <MainButton
-            buttonColor={buttonColor}
-            buttonTextColor={buttonTextColor}
-          >
-            {buttonText}
-          </MainButton>
-        </Link>
+        <TextImageButton
+          to={toLocation}
+          buttoncolor={buttonColor}
+          buttontextcolor={buttonTextColor}
+        >
+          {buttonText}
+        </TextImageButton>
       </div>
     </CustomOuterWrapper>
   );

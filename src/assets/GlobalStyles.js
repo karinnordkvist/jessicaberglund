@@ -4,6 +4,12 @@ export const OuterWrapper = styled.section`
   width: 100%;
 `;
 
+export const InnerWrapper = styled.section`
+  max-width: 800px;
+  width: 80%;
+  margin: 0 auto;
+`;
+
 export const FullWidthSection = styled.div`
   overflow: hidden;
   min-height: 100vh;

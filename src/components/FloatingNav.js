@@ -15,7 +15,11 @@ const NavWrapper = styled.section`
     font-family: var(--font-secondary);
     font-size: 30px;
     font-weight: 400;
-    z-index: 200;
+    z-index: 30;
+  }
+
+  @media (max-width: 1200px) {
+    width: 100%;
   }
 
   @media (max-width: 968px) {

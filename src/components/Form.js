@@ -90,7 +90,7 @@ const Form = () => {
           <label htmlFor="meddelande">Meddelande:</label>
           <textarea id="meddelande" name="meddelande"></textarea>
           <input
-            class="submit-button"
+            className="submit-button"
             type="submit"
             id="submit"
             name="submit"

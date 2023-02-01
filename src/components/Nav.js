@@ -38,6 +38,14 @@ const NavWrapper = styled.section`
     box-shadow: none;
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    .logo {
+      left: 30px !important;
+      right: auto;
+      transform: translateX(0);
+    }
+  }
 `;
 
 const NavFoldout = styled.div`
@@ -69,13 +77,23 @@ const Nav = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 50 && window.location !== '/') {
-        homeNavRef.current.style.opacity = '1';
-      } else {
-        homeNavRef.current.style.opacity = '0';
+      if (window.location.pathname === '/') {
+        if (window.pageYOffset > 50) {
+          homeNavRef.current.style.opacity = '1';
+        } else {
+          homeNavRef.current.style.opacity = '0';
+        }
       }
     });
   }, []);
+
+  useEffect(() => {
+    if (window.location.pathname === '/') {
+      homeNavRef.current.style.opacity = '0';
+    } else {
+      homeNavRef.current.style.opacity = '1';
+    }
+  }, [window.location.pathname]);
 
   useEffect(() => {
     if (menuState) {

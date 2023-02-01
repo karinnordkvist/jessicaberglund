@@ -20,7 +20,7 @@ const CustomHero = styled(Hero)`
 const Home = () => {
   return (
     <div>
-      <CustomHero imageURL="./images/314379697_2072911416246862_8553839296102421913_n.jpeg">
+      <CustomHero imageURL="./images/298815221_1054639595193925_6596742984242335864_n.jpeg">
         <h1>FOTO</h1>
       </CustomHero>
       {/* <FloatingNav /> */}
@@ -31,7 +31,7 @@ const Home = () => {
           consectetur ultrices turpis lectus. Amet commodo"
         buttonText="Till Prislistan"
         buttonColor="var(--color-neutral)"
-        buttonTextColor="var(--color-darkTerra)"
+        buttonTextColor="var(--color-darkTerra)§§§§§§§WQ§"
         toLocation="/priser"
         bg="var(--color-darkTerra)"
         color="var(--color-neutral)"
