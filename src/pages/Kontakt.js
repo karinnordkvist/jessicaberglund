@@ -5,6 +5,7 @@ import styled from 'styled-components/macro';
 import { Hero, InnerWrapper } from '../assets/GlobalStyles';
 
 import TextImageNav from '../components/TextImageNav';
+import FloatingNav from '../components/FloatingNav';
 // import sanityClient from '../client.js';
 
 const OuterWrapper = styled.section`
@@ -93,34 +94,44 @@ const Kontakt = () => {
         <h1>Kontakt</h1>
       </CustomHero>
       <CustomInnerWrapper>
-        <p className="intro">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-          consectetur ultrices turpis lectus. Amet curabitur rutrum pro.
+        <p className="info" style={{ maxWidth: '90%', margin: 'auto' }}>
+          I min egen lilla värld, bland växthus, sådder och bla bla bla. En
+          kortare, lite drömmig text om dig. I min egen lilla värld, bland
+          växthus, sådder och bla bla bla. En kortare, lite drömmig text om dig.
+          I min egen lilla värld, bland växthus, sådder och bla bla bla. En
+          kortare, lite drömmig text om dig.
         </p>
 
         <p className="info">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-          consectetur ultrices tu.
+          consectetur ultrices tu. Här borde det vara en lite presenterande text
+          om vem du är och vad din filosofi är typ. Varför ska man kontakta dig?
         </p>
+
+        <p className="info">akta dig?</p>
+
         <h3>Vill du samarbeta?</h3>
         <p className="info">
-          Läs mer om samarbeten <Link to="/samarbeten">här.</Link>
+          Jag jobbar mer än gärna med andra kreatörer eller entreprenörer. Hör
+          av dig så pratar vi mer! Läs mer om samarbeten{' '}
+          <Link to="/samarbeten">här.</Link>
         </p>
       </CustomInnerWrapper>
 
       <TextImageNav
-        title="Foto"
+        title="Flora"
         text="Se ett urval av mina senaste projekt."
-        buttonText="Till Foto"
+        buttonText="Till Flora"
         buttonColor="var(--color-neutral)"
-        buttonTextColor="var(--color-darkHazel)"
-        toLocation="/foto"
-        bg="var(--color-darkHazel)"
+        buttonTextColor="var(--color-darkMoss)"
+        toLocation="/flora"
+        bg="var(--color-darkMoss)"
         color="var(--color-neutral)"
         dir=""
-        imgUrl="./images/313849679_573762377749840_447649959734290178_n.jpeg"
+        imgUrl="./images/290981609_369272635122405_6081275867941990378_n.jpeg"
         imgAlt="Barnen leker i en lövhög"
       />
+      <FloatingNav />
     </OuterWrapper>
   );
 };

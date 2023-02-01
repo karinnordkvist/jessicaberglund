@@ -135,6 +135,7 @@ const Flora = () => {
         imgUrl="./images/285716810_688908102409223_3961999101083243942_n.jpeg"
         imgAlt="Jessica vattnar odlingarna"
       />
+      <FloatingNav />
     </OuterWrapper>
   );
 };
