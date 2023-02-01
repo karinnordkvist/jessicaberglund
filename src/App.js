@@ -14,6 +14,7 @@ import Flora from './pages/Flora.js';
 import Samarbeten from './pages/Samarbeten.js';
 import Priser from './pages/Priser.js';
 import Kontakt from './pages/Kontakt.js';
+import Footer from './components/Footer.js';
 
 // Reducers
 import { now } from './reducers/now';
@@ -66,6 +67,7 @@ const App = () => {
             </Routes>
           </Wrapper>
         </BrowserRouter>
+        <Footer />
       </div>
     </Provider>
   );

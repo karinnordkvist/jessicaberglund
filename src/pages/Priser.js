@@ -85,7 +85,7 @@ const data = [
 const Priser = () => {
   return (
     <OuterWrapper>
-      <CustomHero imageURL="./images/294945001_1008707779747107_4929773751042745689_n.jpeg">
+      <CustomHero imageURL="./images/309145436_780120409914218_7432944178326966936_n.jpeg">
         <h1>Prislista</h1>
       </CustomHero>
       <CustomInnerWrapper>
@@ -135,6 +135,7 @@ const Priser = () => {
         imgUrl="./images/313849679_573762377749840_447649959734290178_n.jpeg"
         imgAlt="Barnen leker i en lövhög"
       />
+      <FloatingNav />
     </OuterWrapper>
   );
 };
