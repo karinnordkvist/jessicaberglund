@@ -9,12 +9,22 @@
   --color-black: #000;
   --color-neutral: #fbfaf9;
 
-  --color-darkHazel: #41332c;
-  --color-hazel: #7d7066;
-  --color-lightHazel: #ded8d4;
+  --color-darkDijon: #c9a36f;
+  --color-dijon: #e5cdac;
+  --color-lightDijon: #faf3e8;
+
   --color-darkMoss: #56594a;
   --color-moss: #a3a795;
   --color-lightMoss: #e5e6e1;
+
+  --color-darkBrown: #523f31;
+  --color-beige: #b8ab98;
+  --color-lightBeige: #ebe4da;
+
+  --color-darkHazel: #41332c;
+  --color-hazel: #7d7066;
+  --color-lightHazel: #ded8d4;
+
   --color-darkTerra: #805447;
   --color-terra: #b7897b;
   --color-lightTerra: #f6e9e4;

@@ -60,26 +60,25 @@ const PhotoLinksWrapper = styled(FullWidthSection)`
   }
 `;
 
-const DualPhotoLinks = () => {
+const DualPhotoLinks = ({ data }) => {
   return (
-    <div style={{ background: 'var(--color-lightHazel)' }}>
-      <PhotoLinksWrapper>
-        <Link to="/foto">
-          <img
-            src="./images/313849679_573762377749840_447649959734290178_n.jpeg"
-            alt="Barn leker i höstlöven"
-          />
-          <h3>FOTO</h3>
-        </Link>
-        <Link to="/flora">
-          <img
-            src="./images/312961694_937441233901670_5917840965797641745_n.jpeg"
-            alt="Jessica i dörröppning vid blomma"
-          />
-          <h3>FLORA</h3>
-        </Link>
-      </PhotoLinksWrapper>
-    </div>
+    data && (
+      <div style={{ background: 'var(--color-lightBeige)' }}>
+        <PhotoLinksWrapper>
+          <Link to={data[0].duo_nav_link1}>
+            <img src={data[0].duo_nav_img1.url} alt="Barn leker i höstlöven" />
+            <h3>{data[0].duo_nav_link1.slice(1)}</h3>
+          </Link>
+          <Link to={data[0].duo_nav_link2}>
+            <img
+              src={data[0].duo_nav_img2.url}
+              alt="Jessica i dörröppning vid blomma"
+            />
+            <h3>{data[0].duo_nav_link2.slice(1)}</h3>
+          </Link>
+        </PhotoLinksWrapper>
+      </div>
+    )
   );
 };
 

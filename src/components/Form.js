@@ -3,11 +3,11 @@ import styled from 'styled-components/macro';
 import { FullWidthSection, MainButton } from '../assets/GlobalStyles';
 
 const OuterWrapper = styled.div`
-  background: var(--color-lightTerra);
+  background: var(--color-lightDijon);
 `;
 
 const FormWrapper = styled(FullWidthSection)`
-  background: var(--color-lightTerra);
+  background: var(--color-lightDijon);
   width: 100%;
   max-width: 600px;
   min-height: auto;
@@ -47,8 +47,8 @@ const FormWrapper = styled(FullWidthSection)`
     text-decoration: none;
     font-family: var(--font-primary);
     font-weight: 400;
-    background: var(--color-darkTerra);
-    color: var(--color-neutral);
+    background: var(--color-dijon);
+    color: var(--color-black);
     padding: 18px 40px;
     cursor: pointer;
     display: inline-block;

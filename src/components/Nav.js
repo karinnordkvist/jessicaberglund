@@ -143,6 +143,12 @@ const Nav = () => {
           Flora
         </Link>
         <Link
+          to="/blogg"
+          onClick={() => dispatch(now.actions.setMenuOpen(false))}
+        >
+          Blogg
+        </Link>
+        <Link
           to="/samarbeten"
           onClick={() => dispatch(now.actions.setMenuOpen(false))}
         >

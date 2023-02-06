@@ -4,7 +4,7 @@ import { FullWidthSection, MainButton } from '../assets/GlobalStyles';
 
 const TextWrapper = styled(FullWidthSection)`
   flex-direction: column;
-  background: var(--color-darkHazel);
+  background: var(--color-darkBrown);
   height: auto;
   min-height: auto;
   padding: 30px 0;

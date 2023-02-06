@@ -6,6 +6,9 @@ const TextImageWrapper = styled(FullWidthSection)`
   width: 70%;
   margin: 100px auto;
   min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   p {
     padding: 40px 60px 40px;
@@ -13,7 +16,10 @@ const TextImageWrapper = styled(FullWidthSection)`
   }
 
   img {
+    width: 50%;
     max-width: 50%;
+    max-height: 600px;
+    object-fit: cover;
   }
 
   @media (max-width: 1200px) {
@@ -41,27 +47,11 @@ const TextImageWrapper = styled(FullWidthSection)`
   }
 `;
 
-const TextImage = () => {
+const TextImage = ({ data }) => {
   return (
     <TextImageWrapper>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-        consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin
-        pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur
-        ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar
-        rhoncus semper donec. Sit integer morbi vestibulum felis. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices
-        turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus
-        semper donec. Sit integer morbi vestibulum felis.Lorem ipsum dolor sit
-        amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis
-        lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper
-        donec. Sit integer morbi vestibulum felis.
-      </p>
-      <img
-        src="./images/311314965_1153875888877486_5513361764347484917_n.jpeg"
-        alt="Jessica stickar vid ett träd"
-      />
+      <p>{data[0].intro_text}</p>
+      <img src={data[0].intro_image.url} alt="Jessica stickar vid ett träd" />
     </TextImageWrapper>
   );
 };

@@ -11,6 +11,7 @@ import Nav from './components/Nav';
 import Home from './pages/Home.js';
 import Foto from './pages/Foto.js';
 import Flora from './pages/Flora.js';
+import Blogg from './pages/Blogg.js';
 import Samarbeten from './pages/Samarbeten.js';
 import Priser from './pages/Priser.js';
 import Kontakt from './pages/Kontakt.js';
@@ -61,6 +62,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/foto" element={<Foto />} />
               <Route path="/flora" element={<Flora />} />
+              <Route path="/blogg" element={<Blogg />} />
               <Route path="/samarbeten" element={<Samarbeten />} />
               <Route path="/priser" element={<Priser />} />
               <Route path="/kontakt" element={<Kontakt />} />
