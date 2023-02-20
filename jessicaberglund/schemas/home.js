@@ -4,58 +4,98 @@ export default {
   name: 'home',
   title: 'Startsidan',
   type: 'document',
+  fieldsets: [
+    {
+      name: 'hero_section',
+      title: 'Toppsektion',
+    },
+    {
+      name: 'section_1',
+      title: 'Sektion 1',
+    },
+    {
+      name: 'section_2',
+      title: 'Sektion 2',
+    },
+    {
+      name: 'section_3',
+      title: 'Sektion 3',
+    },
+    {
+      name: 'section_4',
+      title: 'Sektion 4',
+    },
+    {
+      name: 'section_5',
+      title: 'Sektion 5',
+    },
+  ],
   fields: [
     {
-      name: 'hero_image',
-      title: 'Hero Bild',
+      name: 'testBody',
+      title: 'Body',
+      type: 'array',
+      of: [
+        { type: 'block' },
+        {
+          type: 'image',
+        },
+      ],
+    },
+    {
+      name: 'hero_img',
+      fieldset: 'hero_section',
+      title: 'Startbild',
       description:
         'Format: Fullskärm, på dator en liggande rektangel, på tablet/telefon en stående rektangel. Centrerad i höjd och bredd.',
       type: 'image',
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Bildtext',
+          description: 'Beskrivning av bilden (för tillgänglighet)',
+        },
+      ],
     },
     {
-      name: 'hero_image_alt',
-      title: 'Bildtext (Hero-bilden)',
-      description: 'Beskrivning av bilden (för tillgänglighet)',
-      type: 'string',
-    },
-    {
-      name: 'intro_text',
+      name: 's1_text',
+      fieldset: 'section_1',
       title: 'Introtext',
       type: 'string',
     },
     {
-      name: 'intro_image',
-      description: 'Format: 300x370px.',
-      title: 'Intro Image',
+      name: 's1_img',
+      fieldset: 'section_1',
       type: 'image',
+      title: 'Introbild',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Bildtext',
+          description: 'Beskrivning av bilden (för tillgänglighet)',
+        },
+      ],
     },
     {
-      name: 'intro_image_alt',
-      title: 'Bildtext (Intro-bilden)',
-      description: 'Beskrivning av bilden (för tillgänglighet)',
-      type: 'string',
-    },
-    {
-      name: 'duo_nav_link1',
-      title: '2 bilder navigation: Länk 1',
-      description: 'Ex /flora',
-      type: 'string',
-    },
-    {
-      name: 'duo_nav_img1',
-      title: '2 bilder navigation: Bild 1',
+      name: 's2_img1',
+      fieldset: 'section_2',
+      title: 'Bild 1',
       type: 'image',
       options: {
         hotspot: true,
       },
     },
     {
-      name: 'duo_nav_link2',
-      title: '2 bilder navigation: Länk 2',
-      description: 'Ex /flora',
+      name: 's2_link1',
+      fieldset: 'section_2',
+      title: 'Länk 1',
+      description:
+        'Välj var du vill att bilden ska länka till. OBS. Endast 1 val möjligt.',
       type: 'array',
       of: [{ type: 'string' }],
       options: {
@@ -70,38 +110,134 @@ export default {
       validation: (Rule) => Rule.unique(),
     },
     {
-      name: 'duo_nav_img2',
-      title: '2 bilder navigation: Bild 2',
+      name: 's2_img2',
+      fieldset: 'section_2',
+      title: 'Bild 2',
       type: 'image',
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Bildtext',
+          description: 'Beskrivning av bilden (för tillgänglighet)',
+        },
+      ],
     },
     {
-      name: 'single_category_title',
-      title: 'Single Category Title',
+      name: 's2_link2',
+      fieldset: 'section_2',
+      title: 'Länk 2',
       description:
-        'Title for above image. Choose from Alla projekt, Fotografi, PR, Styling, Editorial or Rörligt.',
+        'Välj var du vill att bilden ska länka till. OBS. Endast 1 val möjligt.',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        list: [
+          { title: 'Foto', value: '/foto' },
+          { title: 'Flora', value: '/flora' },
+          { title: 'Samarbeten', value: '/samarbeten' },
+          { title: 'Priser', value: '/priser' },
+          { title: 'Kontakt', value: '/kontakt' },
+        ],
+      },
+    },
+    {
+      name: 's3_img',
+      fieldset: 'section_3',
+      title: 'Bild',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Bildtext',
+          description: 'Beskrivning av bilden (för tillgänglighet)',
+        },
+      ],
+    },
+    {
+      name: 's3_link',
+      fieldset: 'section_3',
+      title: 'Länk',
+      description:
+        'Välj var du vill att bilden ska länka till. OBS. Endast 1 val möjligt.',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        list: [
+          { title: 'Foto', value: '/foto' },
+          { title: 'Flora', value: '/flora' },
+          { title: 'Samarbeten', value: '/samarbeten' },
+          { title: 'Priser', value: '/priser' },
+          { title: 'Kontakt', value: '/kontakt' },
+        ],
+      },
+    },
+    {
+      name: 's4_img',
+      fieldset: 'section_4',
+      title: 'Bild',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Bildtext',
+          description: 'Beskrivning av bilden (för tillgänglighet)',
+        },
+      ],
+    },
+    {
+      name: 's4_title',
+      fieldset: 'section_4',
+      title: 'Titel',
       type: 'string',
     },
     {
-      name: 'work_title',
-      title: 'Work Together - Title',
+      name: 's4_text',
+      fieldset: 'section_4',
+      title: 'Text',
       type: 'string',
     },
     {
-      name: 'work_text',
-      title: 'Work Together - Text',
-      description:
-        'Text can be parted up into sections by creating a new paragraph.',
-      type: 'array',
-      of: [{ type: 'block' }],
+      name: 's4_linktext',
+      fieldset: 'section_4',
+      title: 'Knapptext',
+      type: 'string',
     },
     {
-      name: 'work_text2',
-      title: 'Work Together - Text 2',
+      name: 's4_link',
+      fieldset: 'section_4',
+      title: 'Länk',
+      description:
+        'Välj var du vill att bilden ska länka till. OBS. Endast 1 val möjligt.',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{ type: 'string' }],
+      options: {
+        list: [
+          { title: 'Foto', value: '/foto' },
+          { title: 'Flora', value: '/flora' },
+          { title: 'Samarbeten', value: '/samarbeten' },
+          { title: 'Priser', value: '/priser' },
+          { title: 'Kontakt', value: '/kontakt' },
+        ],
+      },
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Startsidan',
+      };
+    },
+  },
 };

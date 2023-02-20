@@ -47,11 +47,11 @@ const TextImageWrapper = styled(FullWidthSection)`
   }
 `;
 
-const TextImage = ({ data }) => {
+const TextImage = ({ introtext, introimg }) => {
   return (
     <TextImageWrapper>
-      <p>{data[0].intro_text}</p>
-      <img src={data[0].intro_image.url} alt="Jessica stickar vid ett träd" />
+      <p>{introtext}</p>
+      <img src={introimg} alt="Jessica stickar vid ett träd" />
     </TextImageWrapper>
   );
 };

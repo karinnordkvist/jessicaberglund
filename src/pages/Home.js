@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import styled from 'styled-components/macro';
+
+import { PortableText } from '@portabletext/react';
+
 import { Hero } from '../assets/GlobalStyles';
 import FloatingNav from '../components/FloatingNav';
 import FullWidthImage from '../components/FullWidthImage';
@@ -19,24 +21,34 @@ const Home = () => {
       .fetch(
         `*[_type == 'home']{
                     _id,
-                    "hero_image":hero_image.asset->{url, tags, title},
-                    intro_text,
-                    "intro_image":intro_image.asset->{url, tags, title},
-                    category_titles,
-                    duo_nav_link1,
-                    duo_nav_link2,
-                    "duo_nav_img1":duo_nav_img1.asset->{url, tags, title},
-                    "duo_nav_img2":duo_nav_img2.asset->{url, tags, title},
+                    testBody,
+                    "hero_img":hero_img.asset->{url, tags, title},
+                    s1_text,
+                    "s1_img" : s1_img.asset->{url, tags, title},
+                    s2_link1,
+                    s2_link2,
+                    "s2_img1":s2_img1.asset->{url, tags, title},
+                    "s2_img2":s2_img2.asset->{url, tags, title},
+                    "s3_img":s3_img.asset->{url, tags, title},
+                    s3_link,
+                    "s4_img":s4_img.asset->{url, tags, title},
+                    s4_title,
+                    s4_text,
+                    s4_linktext,
+                    s4_link,
                   }`
       )
       .then((data) => setHomeData(data))
       .catch(console.error);
   }, []);
 
+  console.log(homeData);
+
   return (
     homeData && (
       <div>
-        <Hero imageURL={homeData[0].hero_image.url}>
+        {/* <PortableText value={homeData[0].testBody} /> */}
+        <Hero imageURL={homeData[0].hero_img.url}>
           <img
             className="logo"
             alt="Logo"
@@ -49,27 +61,33 @@ const Home = () => {
           />
         </Hero>
         <FloatingNav />
-        <TextImage data={homeData} />
-        <DualPhotoLinks data={homeData} />
+        <TextImage
+          introtext={homeData[0].s1_text}
+          introimg={homeData[0].s1_img.url}
+        />
+        <DualPhotoLinks
+          img1={homeData[0].s2_img1.url}
+          link1={homeData[0].s2_link1[0]}
+          img2={homeData[0].s2_img2.url}
+          link2={homeData[0].s2_link2[0]}
+        />
         <FullWidthImage
           text="Flora"
-          bg="./images/311769422_1285362212227630_191711011740689787_n.jpeg"
+          bg={homeData[0].s3_img.url}
           fontColor="var(--color-neutral)"
           path="/flora"
-          data={homeData}
         />
         <TextImageNav
           title="Priser"
           text=""
-          bg="var(--color-darkMoss)"
+          bg="var(--color-hazel)"
           color="var(--color-neutral)"
           toLocation="/priser"
           buttonText="Till Prislistan"
           buttonColor="var(--color-neutral)"
-          buttonTextColor="var(--color-darkMoss)"
+          buttonTextColor="var(--color-hazel)"
           dir="rev"
           imgUrl="./images/308257562_1118799312080230_8966248970938926505_n.jpeg"
-          data={homeData}
         />
         <Form bg="" textColor="" />
       </div>

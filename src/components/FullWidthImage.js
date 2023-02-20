@@ -35,7 +35,7 @@ const PhotoLinksWrapper = styled(FullWidthBackgroundImage)`
   }
 `;
 
-const FullWidthImage = ({ bg, text, fontColor, path }) => {
+const FullWidthImage = ({ data, bg, text, fontColor, path }) => {
   return (
     <Link to={path}>
       <PhotoLinksWrapper bg={bg} fontColor={fontColor}>

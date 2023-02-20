@@ -10,6 +10,6 @@ export default () =>
         .child(S.document().schemaType('home').documentId('home')),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        (listItem) => !['home', 'word'].includes(listItem.getId())
+        (listItem) => !['home', 'word', 'category'].includes(listItem.getId())
       ),
     ]);
