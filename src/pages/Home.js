@@ -24,6 +24,7 @@ const Home = () => {
                     testBody,
                     "hero_img":hero_img.asset->{url, tags, title},
                     s1_text,
+                    s1_text_2,
                     "s1_img" : s1_img.asset->{url, tags, title},
                     s2_link1,
                     s2_link2,
@@ -62,7 +63,7 @@ const Home = () => {
         </Hero>
         <FloatingNav />
         <TextImage
-          introtext={homeData[0].s1_text}
+          introtext={homeData[0].s1_text_2}
           introimg={homeData[0].s1_img.url}
         />
         <DualPhotoLinks

@@ -31,17 +31,17 @@ export default {
     },
   ],
   fields: [
-    {
-      name: 'testBody',
-      title: 'Body',
-      type: 'array',
-      of: [
-        { type: 'block' },
-        {
-          type: 'image',
-        },
-      ],
-    },
+    // {
+    //   name: 'testBody',
+    //   title: 'Body',
+    //   type: 'array',
+    //   of: [
+    //     { type: 'block' },
+    //     {
+    //       type: 'image',
+    //     },
+    //   ],
+    // },
     {
       name: 'hero_img',
       fieldset: 'hero_section',
@@ -65,7 +65,8 @@ export default {
       name: 's1_text',
       fieldset: 'section_1',
       title: 'Introtext',
-      type: 'string',
+      type: 'array',
+      of: [{ type: 'block' }],
     },
     {
       name: 's1_img',

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
+import { PortableText } from '@portabletext/react';
 import {
   FullWidthBackgroundImage,
   Hero,
@@ -10,7 +11,7 @@ import TextImage from '../components/TextImage';
 import DualPhotoLinks from '../components/DualPhotoLinks';
 import TextBlock from '../components/TextBlock';
 import TextImageNav from '../components/TextImageNav';
-// import sanityClient from '../client.js';
+import sanityClient from '../client.js';
 
 const OuterWrapper = styled.section`
   .intro {
@@ -29,6 +30,10 @@ const OuterWrapper = styled.section`
 const CustomInnerWrapper = styled(InnerWrapper)`
   max-width: 600px;
   padding: 50px 0;
+
+  p {
+    padding: 5px 0;
+  }
 `;
 
 const CustomHero = styled(Hero)`
@@ -83,43 +88,29 @@ const data = [
 ];
 
 const Flora = () => {
+  const [floraData, setFloraData] = useState();
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == 'flora']{
+                    _id,
+                    "hero_img":hero_img.asset->{url, tags, title},
+                    s1_text,
+                  }`
+      )
+      .then((data) => setFloraData(data))
+      .catch(console.error);
+  }, []);
+  console.log(floraData);
+
   return (
     <OuterWrapper>
       <CustomHero imageURL="./images/326739964_195192789757743_5301976599399459507_n.jpeg">
         <h1>Flora</h1>
       </CustomHero>
       <CustomInnerWrapper>
-        <p className="intro">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-          consectetur ultrices turpis lectus. Amet curabitur rutrum pro.
-        </p>
-
-        <p className="info">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-          consectetur ultrices turpis lectus. Amet commodo curabitur rutrum
-          proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum
-          felis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-          consectetur ultrices turpis lectus. Amet commodo curabitur rutrum
-          proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum
-          felis.
-        </p>
-
-        <p className="info">Har du frågor? Kontakta mig så pratar vi om det.</p>
-      </CustomInnerWrapper>
-      <CustomInnerWrapper>
-        {data.map((item, index) => {
-          return (
-            <Item key={item.namn}>
-              <div className="text-wrapper">
-                <h3>{item.namn}</h3>
-                <p>{item.text}</p>
-              </div>
-              <div>
-                <p>{item.pris}</p>
-              </div>
-            </Item>
-          );
-        })}
+        {floraData && <PortableText value={floraData[0].s1_text} />}
       </CustomInnerWrapper>
 
       <TextImageNav

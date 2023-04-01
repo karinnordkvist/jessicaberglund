@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { Hero } from '../assets/GlobalStyles';
-// import FloatingNav from '../components/FloatingNav';
 import TextBlock from '../components/TextBlock';
 import TextImageNav from '../components/TextImageNav';
-
-// import sanityClient from '../client.js';
+import Faq from '../components/Faq';
+import sanityClient from '../client.js';
 
 const CustomHero = styled(Hero)`
   min-height: 70vh;
@@ -17,7 +16,22 @@ const CustomHero = styled(Hero)`
   }
 `;
 
-const Home = () => {
+const Foto = () => {
+  const [fotoData, setFotoData] = useState();
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == 'foto']{
+                    _id,
+                    faq_questions
+                  }`
+      )
+      .then((data) => setFotoData(data))
+      .catch(console.error);
+  }, []);
+  // console.log(fotoData[0].faq_questions);
+
   return (
     <div>
       <CustomHero imageURL="./images/298815221_1054639595193925_6596742984242335864_n.jpeg">
@@ -39,8 +53,9 @@ const Home = () => {
         imgUrl="./images/294945001_1008707779747107_4929773751042745689_n.jpeg"
         imgAlt="Jessica stickar vid ett träd"
       />
+      {fotoData && <Faq data={fotoData[0].faq_questions} />}
     </div>
   );
 };
 
-export default Home;
+export default Foto;

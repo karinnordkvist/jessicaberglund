@@ -10,7 +10,7 @@ import TextImage from '../components/TextImage';
 import DualPhotoLinks from '../components/DualPhotoLinks';
 import TextBlock from '../components/TextBlock';
 import TextImageNav from '../components/TextImageNav';
-// import sanityClient from '../client.js';
+import sanityClient from '../client.js';
 
 const OuterWrapper = styled.section`
   .intro {
@@ -83,6 +83,24 @@ const data = [
 ];
 
 const Priser = () => {
+  const [priceData, setPriceData] = useState();
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == 'prices']{
+                    _id,
+                    intro,
+                    foto_prices,
+                    flora_prices
+                  }`
+      )
+      .then((data) => setPriceData(data))
+      .catch(console.error);
+  }, []);
+
+  priceData && console.log(priceData);
+
   return (
     <OuterWrapper>
       <CustomHero imageURL="./images/309145436_780120409914218_7432944178326966936_n.jpeg">

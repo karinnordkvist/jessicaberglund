@@ -9,6 +9,8 @@ const NavWrapper = styled.section`
   justify-content: space-between;
   align-items: center;
   padding: 50px 100px;
+  position: relative;
+  z-index: 10;
 
   a {
     text-decoration: none;
@@ -54,8 +56,8 @@ const FloatingNav = () => {
       <Link className="logo-nav" to="/samarbeten">
         Samarbeten
       </Link>
-      <Link className="logo-nav" to="/priser">
-        Priser
+      <Link className="logo-nav" to="/om">
+        Om mig
       </Link>
       <Link className="logo-nav" to="/kontakt">
         Kontakt

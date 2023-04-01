@@ -26,6 +26,18 @@ export const FullWidthSection = styled.div`
   }
 `;
 
+export const FullWidthVertical = styled(FullWidthSection)`
+  flex-direction: column;
+  padding: var(--fw-padding-xy);
+  max-width: 600px;
+  padding: 50px 0;
+  margin: auto;
+
+  p {
+    padding: 5px 0;
+  }
+`;
+
 export const FullWidthBackgroundImage = styled(FullWidthSection)`
   background: url(${(props) => props.imageURL});
   background-size: cover;

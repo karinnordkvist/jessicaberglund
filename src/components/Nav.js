@@ -154,12 +154,15 @@ const Nav = () => {
         >
           Samarbeten
         </Link>
-        <Link
+        <Link to="/om" onClick={() => dispatch(now.actions.setMenuOpen(false))}>
+          Om Mig
+        </Link>
+        {/* <Link
           to="/priser"
           onClick={() => dispatch(now.actions.setMenuOpen(false))}
         >
           Priser
-        </Link>
+        </Link> */}
         <Link
           to="/kontakt"
           onClick={() => dispatch(now.actions.setMenuOpen(false))}

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { FullWidthSection } from '../assets/GlobalStyles';
+import BlockContent from '@sanity/block-content-to-react';
 
 const TextImageWrapper = styled(FullWidthSection)`
   width: 70%;
@@ -11,8 +12,9 @@ const TextImageWrapper = styled(FullWidthSection)`
   justify-content: space-between;
 
   p {
-    padding: 40px 60px 40px;
-    line-height: 1.5;
+    padding: 10px 60px 10px 0;
+    font-size: 18px;
+    line-height: 1.6;
   }
 
   img {
@@ -48,9 +50,17 @@ const TextImageWrapper = styled(FullWidthSection)`
 `;
 
 const TextImage = ({ introtext, introimg }) => {
+  console.log(introtext);
   return (
     <TextImageWrapper>
-      <p>{introtext}</p>
+      {introtext && <BlockContent blocks={introtext} />}
+
+      {/* <p>
+        {introtext &&
+          introtext.map((item, index) => {
+            return item;
+          })}
+      </p> */}
       <img src={introimg} alt="Jessica stickar vid ett träd" />
     </TextImageWrapper>
   );
