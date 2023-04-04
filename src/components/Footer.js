@@ -4,26 +4,26 @@ import { FullWidthSection, MainButton } from '../assets/GlobalStyles';
 
 const TextWrapper = styled(FullWidthSection)`
   flex-direction: column;
-  background: var(--color-darkBrown);
+  background: var(--color-dijon);
   height: auto;
   min-height: auto;
   padding: 30px 0;
 
   p {
-    color: var(--color-neutral);
+    color: var(--color-black);
     font-size: 12px;
     line-height: 1.5;
     text-align: center;
   }
 
   a {
-    color: var(--color-neutral);
+    color: var(--color-black);
     font-weight: 400;
     font-style: italic;
   }
 
   @media (max-width: 768px) {
-    width: 80%;
+    width: 100%;
 
     p {
       width: 100%;

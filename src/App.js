@@ -14,7 +14,7 @@ import Flora from './pages/Flora.js';
 import Blogg from './pages/Blogg.js';
 import Samarbeten from './pages/Samarbeten.js';
 import OmMig from './pages/OmMig.js';
-// import Priser from './pages/Priser.js';
+import Priser from './pages/Priser.js';
 import Kontakt from './pages/Kontakt.js';
 import Footer from './components/Footer.js';
 
@@ -65,7 +65,7 @@ const App = () => {
               <Route path="/flora" element={<Flora />} />
               <Route path="/blogg" element={<Blogg />} />
               <Route path="/samarbeten" element={<Samarbeten />} />
-              {/* <Route path="/priser" element={<Priser />} /> */}
+              <Route path="/priser" element={<Priser />} />
               <Route path="/om" element={<OmMig />} />
               <Route path="/kontakt" element={<Kontakt />} />
             </Routes>

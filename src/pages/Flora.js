@@ -32,7 +32,12 @@ const CustomInnerWrapper = styled(InnerWrapper)`
   padding: 50px 0;
 
   p {
-    padding: 5px 0;
+    padding: 10px 0;
+    line-height: 1.4;
+  }
+
+  h4 {
+    margin-top: 10px;
   }
 `;
 
@@ -64,29 +69,6 @@ const Item = styled.div`
   }
 `;
 
-const data = [
-  {
-    namn: 'Bröllop',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-    pris: 'Pris från zxxxxxx',
-  },
-  {
-    namn: 'Familj',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-    pris: 'Pris från zxxxxxx',
-  },
-  {
-    namn: 'Gravid',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-    pris: 'Pris från zxxxxxx',
-  },
-  {
-    namn: 'Barn',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-    pris: 'Pris från zxxxxxx',
-  },
-];
-
 const Flora = () => {
   const [floraData, setFloraData] = useState();
 
@@ -102,7 +84,6 @@ const Flora = () => {
       .then((data) => setFloraData(data))
       .catch(console.error);
   }, []);
-  console.log(floraData);
 
   return (
     <OuterWrapper>

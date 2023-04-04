@@ -11,6 +11,7 @@ import DualPhotoLinks from '../components/DualPhotoLinks';
 import TextBlock from '../components/TextBlock';
 import TextImageNav from '../components/TextImageNav';
 import sanityClient from '../client.js';
+import { PortableText } from '@portabletext/react';
 
 const OuterWrapper = styled.section`
   .intro {
@@ -59,28 +60,28 @@ const Item = styled.div`
   }
 `;
 
-const data = [
-  {
-    namn: 'Bröllop',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-    pris: 'Pris från zxxxxxx',
-  },
-  {
-    namn: 'Familj',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-    pris: 'Pris från zxxxxxx',
-  },
-  {
-    namn: 'Gravid',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-    pris: 'Pris från zxxxxxx',
-  },
-  {
-    namn: 'Barn',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-    pris: 'Pris från zxxxxxx',
-  },
-];
+// const data = [
+//   {
+//     namn: 'Bröllop',
+//     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
+//     pris: 'Pris från zxxxxxx',
+//   },
+//   {
+//     namn: 'Familj',
+//     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
+//     pris: 'Pris från zxxxxxx',
+//   },
+//   {
+//     namn: 'Gravid',
+//     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
+//     pris: 'Pris från zxxxxxx',
+//   },
+//   {
+//     namn: 'Barn',
+//     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
+//     pris: 'Pris från zxxxxxx',
+//   },
+// ];
 
 const Priser = () => {
   const [priceData, setPriceData] = useState();
@@ -107,25 +108,10 @@ const Priser = () => {
         <h1>Prislista</h1>
       </CustomHero>
       <CustomInnerWrapper>
-        <p className="intro">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-          consectetur ultrices turpis lectus. Amet curabitur rutrum pro.
-        </p>
-
-        <p className="info">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-          consectetur ultrices turpis lectus. Amet commodo curabitur rutrum
-          proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum
-          felis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
-          consectetur ultrices turpis lectus. Amet commodo curabitur rutrum
-          proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum
-          felis.
-        </p>
-
-        <p className="info">Har du frågor? Kontakta mig så pratar vi om det.</p>
+        {priceData && <PortableText value={priceData[0].s1_text} />}
       </CustomInnerWrapper>
       <CustomInnerWrapper>
-        {data.map((item, index) => {
+        {/* {data.map((item, index) => {
           return (
             <Item key={item.namn}>
               <div className="text-wrapper">
@@ -137,7 +123,7 @@ const Priser = () => {
               </div>
             </Item>
           );
-        })}
+        })} */}
       </CustomInnerWrapper>
 
       <TextImageNav

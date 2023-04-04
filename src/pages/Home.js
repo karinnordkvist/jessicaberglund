@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import styled from 'styled-components/macro';
 import { PortableText } from '@portabletext/react';
-
-import { Hero } from '../assets/GlobalStyles';
+import { Hero, InnerWrapper } from '../assets/GlobalStyles';
 import FloatingNav from '../components/FloatingNav';
 import FullWidthImage from '../components/FullWidthImage';
 import TextImage from '../components/TextImage';
@@ -12,6 +11,37 @@ import TextImageNav from '../components/TextImageNav';
 import Form from '../components/Form';
 import Footer from '../components/Footer';
 import sanityClient from '../client.js';
+
+const CustomInnerWrapper = styled(InnerWrapper)`
+  max-width: 600px;
+  padding: 50px 0;
+
+  p {
+    padding: 10px 0;
+    line-height: 1.4;
+  }
+
+  h4 {
+    margin-top: 10px;
+  }
+
+  .content-image {
+    max-width: 100%;
+    padding: 10px 0;
+  }
+
+  a {
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-weight: 400;
+    background: var(--color-darkDijon);
+    color: var(--color-neutral);
+    padding: 18px 40px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 20px 0;
+  }
+`;
 
 const Home = () => {
   const [homeData, setHomeData] = useState();
@@ -23,8 +53,12 @@ const Home = () => {
                     _id,
                     testBody,
                     "hero_img":hero_img.asset->{url, tags, title},
-                    s1_text,
-                    s1_text_2,
+                    s1_text[]{
+                    ...,
+                    _type == "image" => {
+                      asset->{url, tags, title},
+                    }
+                    },
                     "s1_img" : s1_img.asset->{url, tags, title},
                     s2_link1,
                     s2_link2,
@@ -43,7 +77,17 @@ const Home = () => {
       .catch(console.error);
   }, []);
 
-  console.log(homeData);
+  const myPortableTextComponents = {
+    types: {
+      image: ({ value }) => (
+        <img
+          className="content-image"
+          alt={value.asset.alt}
+          src={value.asset.url}
+        />
+      ),
+    },
+  };
 
   return (
     homeData && (
@@ -62,10 +106,18 @@ const Home = () => {
           />
         </Hero>
         <FloatingNav />
-        <TextImage
-          introtext={homeData[0].s1_text_2}
+        {/* <TextImage
+          introtext={homeData[0].s1_text}
           introimg={homeData[0].s1_img.url}
-        />
+        /> */}
+        <CustomInnerWrapper>
+          {homeData && (
+            <PortableText
+              value={homeData[0].s1_text}
+              components={myPortableTextComponents}
+            />
+          )}
+        </CustomInnerWrapper>
         <DualPhotoLinks
           img1={homeData[0].s2_img1.url}
           link1={homeData[0].s2_link1[0]}

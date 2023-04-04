@@ -16,7 +16,7 @@ const FaqWrapper = styled(FullWidthSection)`
   }
 
   .question-wrapper {
-    padding: 20px 0;
+    padding: 20px 30px;
     width: 50%;
   }
 
@@ -38,6 +38,16 @@ const FaqWrapper = styled(FullWidthSection)`
     width: 80%;
 
     p {
+      width: 100%;
+    }
+
+    .questions-wrapper {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    .question-wrapper {
+      padding: 20px 5px;
       width: 100%;
     }
   }
