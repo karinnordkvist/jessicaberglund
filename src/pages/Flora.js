@@ -39,6 +39,11 @@ const CustomInnerWrapper = styled(InnerWrapper)`
   h4 {
     margin-top: 10px;
   }
+
+  img {
+    max-width: 100%;
+    padding: 10px 0;
+  }
 `;
 
 const CustomHero = styled(Hero)`
@@ -69,6 +74,18 @@ const Item = styled.div`
   }
 `;
 
+const myPortableTextComponents = {
+  types: {
+    image: ({ value }) => (
+      <img
+        className="content-image"
+        alt={value.asset.alt}
+        src={value.asset.url}
+      />
+    ),
+  },
+};
+
 const Flora = () => {
   const [floraData, setFloraData] = useState();
 
@@ -78,7 +95,12 @@ const Flora = () => {
         `*[_type == 'flora']{
                     _id,
                     "hero_img":hero_img.asset->{url, tags, title},
-                    s1_text,
+                    s1_text[]{
+                    ...,
+                    _type == "image" => {
+                      asset->{url, tags, title},
+                    }
+                    },
                   }`
       )
       .then((data) => setFloraData(data))
@@ -91,7 +113,12 @@ const Flora = () => {
         <h1>Flora</h1>
       </CustomHero>
       <CustomInnerWrapper>
-        {floraData && <PortableText value={floraData[0].s1_text} />}
+        {floraData && (
+          <PortableText
+            value={floraData[0].s1_text}
+            components={myPortableTextComponents}
+          />
+        )}
       </CustomInnerWrapper>
 
       <TextImageNav
@@ -100,7 +127,7 @@ const Flora = () => {
         buttonText="Till Kontakt"
         buttonColor="var(--color-moss)"
         buttonTextColor="var(--color-neutral)"
-        toLocation="/foto"
+        toLocation="/kontakt"
         bg="var(--color-darkMoss)"
         color="var(--color-lightMoss)"
         dir=""

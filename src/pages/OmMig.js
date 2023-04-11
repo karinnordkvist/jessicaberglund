@@ -20,6 +20,25 @@ const CustomHero = styled(Hero)`
   }
 `;
 
+const AboutWrapper = styled(FullWidthVertical)`
+  img {
+    max-width: 100%;
+    padding: 25px 0;
+  }
+`;
+
+const myPortableTextComponents = {
+  types: {
+    image: ({ value }) => (
+      <img
+        className="content-image"
+        alt={value.asset.alt}
+        src={value.asset.url}
+      />
+    ),
+  },
+};
+
 const OmMig = () => {
   const [aboutData, setAboutData] = useState();
 
@@ -29,7 +48,12 @@ const OmMig = () => {
         `*[_type == 'about']{
                     _id,
                     "hero_img":hero_img.asset->{url, tags, title},
-                    s1_text,
+                    s1_text[]{
+                    ...,
+                    _type == "image" => {
+                      asset->{url, tags, title},
+                    }
+                    },
                   }`
       )
       .then((data) => setAboutData(data))
@@ -42,9 +66,14 @@ const OmMig = () => {
       <CustomHero imageURL="./images/298815221_1054639595193925_6596742984242335864_n.jpeg">
         <h1>Om mig</h1>
       </CustomHero>
-      <FullWidthVertical>
-        {aboutData && <PortableText value={aboutData[0].s1_text} />}
-      </FullWidthVertical>
+      <AboutWrapper>
+        {aboutData && (
+          <PortableText
+            value={aboutData[0].s1_text}
+            components={myPortableTextComponents}
+          />
+        )}
+      </AboutWrapper>
     </div>
   );
 };

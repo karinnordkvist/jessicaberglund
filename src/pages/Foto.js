@@ -4,6 +4,7 @@ import { Hero, InnerWrapper } from '../assets/GlobalStyles';
 import TextBlock from '../components/TextBlock';
 import TextImageNav from '../components/TextImageNav';
 import Faq from '../components/Faq';
+import Booking from '../components/Booking';
 import sanityClient from '../client.js';
 import { PortableText } from '@portabletext/react';
 
@@ -81,6 +82,7 @@ const Foto = () => {
         imgAlt="Jessica stickar vid ett träd"
       />
       {fotoData && <Faq data={fotoData[0].faq_questions} />}
+      <Booking />
     </div>
   );
 };

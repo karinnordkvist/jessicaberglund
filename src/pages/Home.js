@@ -92,7 +92,6 @@ const Home = () => {
   return (
     homeData && (
       <div>
-        {/* <PortableText value={homeData[0].testBody} /> */}
         <Hero imageURL={homeData[0].hero_img.url}>
           <img
             className="logo"

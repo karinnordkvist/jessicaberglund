@@ -65,10 +65,8 @@ export default {
       name: 's1_text',
       fieldset: 'section_1',
       title: 'Introtext',
-      type: 'array',
-      of: [{ type: 'block' }],
+      type: 'blockContent',
     },
-
     {
       name: 's2_img1',
       fieldset: 'section_2',
