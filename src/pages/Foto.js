@@ -66,7 +66,7 @@ const Foto = () => {
         {fotoData && <PortableText value={fotoData[0].s1_text} />}
       </CustomInnerWrapper>
 
-      {/* <TextImageNav
+      <TextImageNav
         title="Priser"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum
           consectetur ultrices turpis lectus. Amet commodo"
@@ -79,7 +79,7 @@ const Foto = () => {
         dir=""
         imgUrl="./images/294945001_1008707779747107_4929773751042745689_n.jpeg"
         imgAlt="Jessica stickar vid ett träd"
-      /> */}
+      />
       {fotoData && <Faq data={fotoData[0].faq_questions} />}
     </div>
   );
