@@ -11,12 +11,13 @@ export default {
     {
       name: 'priceText',
       title: 'Information',
-      type: 'string',
+      type: 'blockContent',
     },
     {
       name: 'pricePrice',
       title: 'Pris',
-      type: 'string',
+      type: 'array',
+      of: [{ type: 'string' }],
     },
   ],
 

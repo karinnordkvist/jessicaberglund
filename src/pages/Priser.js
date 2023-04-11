@@ -28,8 +28,14 @@ const OuterWrapper = styled.section`
 `;
 
 const CustomInnerWrapper = styled(InnerWrapper)`
-  max-width: 600px;
+  max-width: 900px;
   padding: 50px 0;
+
+  .intro-wrapper {
+    p {
+      padding: 5px 0;
+    }
+  }
 `;
 
 const CustomHero = styled(Hero)`
@@ -45,6 +51,7 @@ const CustomHero = styled(Hero)`
 
 const Item = styled.div`
   display: flex;
+  /* flex-direction: column; */
   justify-content: space-between;
   margin-bottom: 40px;
 
@@ -58,30 +65,21 @@ const Item = styled.div`
   .text-wrapper {
     width: 60%;
   }
-`;
 
-// const data = [
-//   {
-//     namn: 'Bröllop',
-//     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-//     pris: 'Pris från zxxxxxx',
-//   },
-//   {
-//     namn: 'Familj',
-//     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-//     pris: 'Pris från zxxxxxx',
-//   },
-//   {
-//     namn: 'Gravid',
-//     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-//     pris: 'Pris från zxxxxxx',
-//   },
-//   {
-//     namn: 'Barn',
-//     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum consectetur ultrices turpis lectus. Amet commodo curabitur rutrum proin pulvinar rhoncus semper donec. Sit integer morbi vestibulum felis.Lorem ipsum',
-//     pris: 'Pris från zxxxxxx',
-//   },
-// ];
+  .price-wrapper {
+    width: 40%;
+    padding: 20px;
+    margin-left: 20px;
+
+    .price {
+      font-style: italic;
+    }
+  }
+
+  p {
+    padding: 5px 0;
+  }
+`;
 
 const Priser = () => {
   const [priceData, setPriceData] = useState();
@@ -91,9 +89,9 @@ const Priser = () => {
       .fetch(
         `*[_type == 'prices']{
                     _id,
-                    intro,
+                    s1_text,
                     foto_prices,
-                    flora_prices
+                    flora_prices,
                   }`
       )
       .then((data) => setPriceData(data))
@@ -107,23 +105,33 @@ const Priser = () => {
       <CustomHero imageURL="./images/309145436_780120409914218_7432944178326966936_n.jpeg">
         <h1>Prislista</h1>
       </CustomHero>
-      <CustomInnerWrapper>
-        {priceData && <PortableText value={priceData[0].s1_text} />}
+      <CustomInnerWrapper style={{ maxWidth: '600px', padding: '50px 0 20px' }}>
+        <div className="intro-wrapper">
+          {priceData && <PortableText value={priceData[0].s1_text} />}
+        </div>
       </CustomInnerWrapper>
       <CustomInnerWrapper>
-        {/* {data.map((item, index) => {
-          return (
-            <Item key={item.namn}>
-              <div className="text-wrapper">
-                <h3>{item.namn}</h3>
-                <p>{item.text}</p>
-              </div>
-              <div>
-                <p>{item.pris}</p>
-              </div>
-            </Item>
-          );
-        })} */}
+        {priceData &&
+          priceData[0].foto_prices.map((item, index) => {
+            return (
+              <Item key={index}>
+                <div className="text-wrapper">
+                  <h3>{item.priceTitle}</h3>
+                  <PortableText value={item.priceText} />
+                </div>
+                <div className="price-wrapper">
+                  {item.pricePrice &&
+                    item.pricePrice.map((item2, index2) => {
+                      return (
+                        <p className="price" key={index2}>
+                          {item2}
+                        </p>
+                      );
+                    })}
+                </div>
+              </Item>
+            );
+          })}
       </CustomInnerWrapper>
 
       <TextImageNav

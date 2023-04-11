@@ -34,9 +34,9 @@ export default {
       ],
     },
     {
-      name: 'intro',
+      name: 's1_text',
       title: 'Introtext',
-      type: 'text',
+      type: 'blockContent',
     },
     {
       name: 'foto_prices',
