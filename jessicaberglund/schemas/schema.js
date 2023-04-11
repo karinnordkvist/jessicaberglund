@@ -14,6 +14,7 @@ import price from './price';
 import prices from './prices';
 import grid from './grid';
 import photoProject from './photoProject';
+import navBlock from './navBlock';
 
 export default createSchema({
   name: 'JessicaBerglund',
@@ -31,5 +32,6 @@ export default createSchema({
     grid,
     faq,
     about,
+    navBlock,
   ]),
 });
