@@ -10,6 +10,7 @@ import TextImage from '../components/TextImage';
 import DualPhotoLinks from '../components/DualPhotoLinks';
 import TextBlock from '../components/TextBlock';
 import TextImageNav from '../components/TextImageNav';
+import Booking from '../components/Booking';
 import sanityClient from '../client.js';
 import { PortableText } from '@portabletext/react';
 
@@ -70,6 +71,7 @@ const Item = styled.div`
     width: 40%;
     padding: 20px;
     margin-left: 20px;
+    background: #fff;
 
     .price {
       font-style: italic;
@@ -78,6 +80,20 @@ const Item = styled.div`
 
   p {
     padding: 5px 0;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+
+    .text-wrapper {
+      width: 100%;
+    }
+
+    .price-wrapper {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 20px;
+    }
   }
 `;
 
@@ -119,21 +135,23 @@ const Priser = () => {
                   <h3>{item.priceTitle}</h3>
                   <PortableText value={item.priceText} />
                 </div>
-                <div className="price-wrapper">
-                  {item.pricePrice &&
-                    item.pricePrice.map((item2, index2) => {
-                      return (
-                        <p className="price" key={index2}>
-                          {item2}
-                        </p>
-                      );
-                    })}
-                </div>
+                {item.pricePrice && (
+                  <div className="price-wrapper">
+                    {item.pricePrice &&
+                      item.pricePrice.map((item2, index2) => {
+                        return (
+                          <p className="price" key={index2}>
+                            {item2}
+                          </p>
+                        );
+                      })}
+                  </div>
+                )}
               </Item>
             );
           })}
       </CustomInnerWrapper>
-
+      <Booking />
       <TextImageNav
         title="Foto"
         text="Se ett urval av mina senaste projekt."
